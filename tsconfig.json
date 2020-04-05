@@ -17,6 +17,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "jsx": "react"
   },
   "include": [
