@@ -1,38 +1,32 @@
 .app-container {
   width: 100%;
-  max-width: 1120px;
-  height: 100vh;
-  margin: 0 auto;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .app-container header {
   width: 100%;
-  max-width: 1120px;
-  height: 30%;
+  height: 15vh;
 
   align-items: center;
-  justify-content: center;
 }
 
 .app-container header h1,
 .app-container header h2 {
   text-align: center;
+  line-height: 1.7;
 }
 
 .app-container body {
   width: 100%;
-  max-width: 1120px;
-  height: 70%;
+  height: 85vh;
+  margin: 0 auto;
 
+  display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.app-container body h1 {
-  text-align: center;
 }

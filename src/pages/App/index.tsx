@@ -1,8 +1,11 @@
 import React from 'react';
 
-import './App.css';
+import TreeWithController from '../../components/TreeWithController';
+
+import './styles.css';
 
 function App() {
+
   return (
     <div className="app-container">
       <header>
@@ -10,8 +13,9 @@ function App() {
         <h2>Eduardo Cruz</h2>
         <h2>Rômulo Maciel</h2>
       </header>
+
       <body>
-        <h1>Árvore AVL</h1>
+        <TreeWithController />
       </body>
     </div>
   );
