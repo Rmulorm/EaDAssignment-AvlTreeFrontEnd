@@ -41,6 +41,27 @@ const TreeTab: FunctionComponent<TreeTabProps> = (props) => {
         <Tree
           data={props.treeData}
           translate={treeTranslate}
+          orientation="vertical"
+          styles={ {
+            links: {
+              stroke: "#e02041",
+              strokeWidth: 2
+            },
+            nodes: {
+              node: {
+                circle: {
+                  fill: "#41414d",
+                  stroke: "#41414d"
+                } 
+              },
+              leafNode: {
+                circle: {
+                  fill: "#41414d",
+                  stroke: "#41414d"
+                } 
+              }
+            }
+          } }
         />
       );
     }
