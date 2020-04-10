@@ -24,7 +24,7 @@ const ControllerTab: FunctionComponent<ControllerTabProps> = (props) => {
     const searchData = searchResponse.data;
 
     if (searchData.isNodeInTheTree) {
-      alert(`O nodo procurado existe na árvore, seguindo o caminho\n${searchResponse.data.searchedNodes}`);
+      alert(`O nodo procurado existe na árvore, seguindo o caminho\n${searchData.searchedNodes}`);
     } else {
       alert(`Não existe um nodo com o valor ${value} na árvore`);
     }
@@ -34,7 +34,7 @@ const ControllerTab: FunctionComponent<ControllerTabProps> = (props) => {
 
   const deleteNode = async (value: number) => {
     api.delete(`tree/${value}`)
-    .catch((error) => {
+    .catch(() => {
       alert(`Não existe um nodo com o valor ${value} na árvore`);
     })
   };
@@ -44,8 +44,8 @@ const ControllerTab: FunctionComponent<ControllerTabProps> = (props) => {
       <Controller
         placeholderText="Inserir Nodo"
         icon={FiPlus}
-        updateTree={props.updateTree}
         interactWithBackEnd={addNode}
+        updateTree={props.updateTree}
       />
       <Controller
         placeholderText="Buscar Nodo"
@@ -56,8 +56,8 @@ const ControllerTab: FunctionComponent<ControllerTabProps> = (props) => {
       <Controller
         placeholderText="Deletar Nodo"
         icon={FiTrash2}
-        updateTree={props.updateTree}
         interactWithBackEnd={deleteNode}
+        updateTree={props.updateTree}
       />
     </div>
   );

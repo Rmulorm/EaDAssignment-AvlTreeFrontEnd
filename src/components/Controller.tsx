@@ -6,7 +6,7 @@ import './Controller.css'
 interface ControllerProps {
   placeholderText: string,
   icon: IconType,
-  updateTree?: Function,
+  updateTree: Function,
   interactWithBackEnd: Function
 }
 
@@ -19,9 +19,7 @@ const Controller: FunctionComponent<ControllerProps> = (props) => {
     const backendReturn = await props.interactWithBackEnd(value);
     setValue(0);
 
-    if (props.updateTree) {
-      await props.updateTree(backendReturn);
-    }
+    await props.updateTree(backendReturn);
   }
 
   return(
