@@ -14,8 +14,11 @@ interface ControllerTabProps {
 const ControllerTab: FunctionComponent<ControllerTabProps> = (props) => {
 
   const addNode = async (value: number) => {
-    await api.post('tree', {
+    api.post('tree', {
       value: value
+    })
+    .catch(() => {
+      alert(`Valor ${value} já está na árvore.`)
     });
   };
 
