@@ -1,6 +1,7 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
 import { ReactD3TreeItem } from 'react-d3-tree';
 
+import SearchNodeReturn from '../types/SearchNodeReturn';
 import ControllerTab from './ControllerTab';
 import TreeTab from './TreeTab';
 import api from '../services/api';
@@ -15,8 +16,13 @@ const TreeWithController: FunctionComponent = () => {
     updateTree();
   }, []);
   
-  const updateTree = async () => {
-    await api.get<ReactD3TreeItem>('tree')
+  const updateTree = async (searchNodes?: SearchNodeReturn) => {
+    await api.get<ReactD3TreeItem>('tree', {
+      params: {
+        isNodeInTheTree: searchNodes?.isNodeInTheTree,
+        searchedNodes: searchNodes?.searchedNodes
+      }
+    })
     .then((response) => {
       setTreeData(response.data);
     });

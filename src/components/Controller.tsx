@@ -3,28 +3,25 @@ import { IconType } from 'react-icons/lib';
 
 import './Controller.css'
 
-import api from '../services/api';
-
 interface ControllerProps {
   placeholderText: string,
   icon: IconType,
-  updateTree: Function
+  updateTree?: Function,
+  interactWithBackEnd: Function
 }
 
 const Controller: FunctionComponent<ControllerProps> = (props) => {
 
   const[value, setValue] = useState<number>();
 
-  const  handleFormSubmit = async (event: FormEvent) => {
+  const handleFormSubmit = async (event: FormEvent) => {
     event.preventDefault();
-
-    await api.post('tree', {
-      value: value
-    });
-
+    const backendReturn = await props.interactWithBackEnd(value);
     setValue(0);
 
-    props.updateTree();
+    if (props.updateTree) {
+      await props.updateTree(backendReturn);
+    }
   }
 
   return(
