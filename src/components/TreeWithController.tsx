@@ -3,7 +3,7 @@ import { ReactD3TreeItem } from 'react-d3-tree';
 
 import SearchNodeReturn from '../types/SearchNodeReturn';
 import ControllerTab from './ControllerTab';
-import TreeTab from './TreeTab';
+import TreeTab from './TreeTab/TreeTab';
 import api from '../services/api';
 
 import './TreeWithController.css';
@@ -31,7 +31,10 @@ const TreeWithController: FunctionComponent = () => {
   return(
     <div className="TreeWithController" >
       <ControllerTab updateTree={updateTree} />
-      <TreeTab treeData={treeData} />
+      <TreeTab
+        treeData={treeData}
+        updateTree={updateTree}
+      />
     </div>
   );
 }
